@@ -27,18 +27,71 @@
 <link href="https://fonts.googleapis.com/css?family=Squada+One" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 <link rel="stylesheet" href="css/app.css">
-<title>PASSCURE</title>
+<title>CRYPTOG6</title>
 </head>
 <body>
     <div class="">
         <div class="card">
           <div class="card-body" id="content">
-            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link" href="#">Pass</a>
+                  <a class="nav-item nav-link" href="#">Advanced</a>
+                  <a class="nav-item nav-link" href="#">Info</a>
+                </div>
+              </div>
+            </nav>
           </div>
           <div class="card-body" id="settings">
-            
+            <label for="password-length">Length of Password:</label>
+            <select id="password-length"></select>
+            <script>
+              i = 3
+              var select = document.getElementById('password-length');
+              while(i <= 64) {
+                    n = i * 2;
+                    var option = new Option(n , n); // Option(text, value) | <option value="">text</option>
+                    select.appendChild(option);
+                    i++;
+                }
+            </script>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb1">
+              <label class="custom-control-label" for="cb1">Include Numbers</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb2">
+              <label class="custom-control-label" for="cb2">Include Symbols</label>
+            </div>  
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb3">
+              <label class="custom-control-label" for="cb3">Upper Case</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb4">
+              <label class="custom-control-label" for="cb4">Lower Case</label>
+            </div>  
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb5">
+              <label class="custom-control-label" for="cb5">Similar/Replace</label> <!-- Use 0 to reprsent O or 3 to represent E-->
+            </div>  
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb6">
+              <label class="custom-control-label" for="cb6">Ambiguous</label>
+            </div>  
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb7">
+              <label class="custom-control-label" for="cb7">Create Sentence</label>
+            </div>  
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cb8" checked>
+              <label class="custom-control-label" for="cb8">Random Characters</label>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block">Generate Password</button>
           </div>
           <div class="card-body" id="results">
+            <input class="form-control" type="text" placeholder="Generated Password Here…" readonly>
             
           </div>
         </div>
